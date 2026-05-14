@@ -1,4 +1,5 @@
-""" Exemplary calculator functions"""
+"""Exemplary calculator functions"""
+
 
 def add(a: int, b: int) -> int:
     """Function for adding values"""
@@ -8,6 +9,7 @@ def add(a: int, b: int) -> int:
 def subtract(a: int, b: int) -> int:
     """Function for substracting"""
     return a - b
+
 
 def multiply(a: int, b: int) -> int:
     """Function for multiplying"""
