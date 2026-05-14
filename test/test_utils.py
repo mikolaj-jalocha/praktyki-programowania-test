@@ -36,3 +36,31 @@ def test_divide(a, b, expected):
     """tests"""
     result = utils.divide(a, b)
     assert result == expected
+
+import pytest
+from utils import decimal_to_binary
+
+
+@pytest.mark.parametrize("decimal, expected", [
+    (0, "0b0"),
+    (1, "0b1"),
+    (10, "0b1010"),
+    (100, "0b1100100"),
+])
+def test_decimal_to_binary_conversion(decimal, expected):
+    """Test correct binary conversion."""
+    assert decimal_to_binary(decimal) == expected
+
+
+@pytest.mark.parametrize("decimal", [-1, 101])
+def test_decimal_to_binary_out_of_range(decimal):
+    """Test if out-of-range numbers raise an error."""
+    with pytest.raises(ValueError):
+        decimal_to_binary(decimal)
+
+
+@pytest.mark.parametrize("decimal", [1.5, 2.7, -3.3])
+def test_decimal_to_binary_non_integer(decimal):
+    """Test if non-integer numbers raise an error."""
+    with pytest.raises(ValueError):
+        decimal_to_binary(decimal)
